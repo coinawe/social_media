@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Join Coinawe Discord</title>
-  <meta http-equiv="refresh" content="3; url=https://discord.gg/pddBb8G3UX">
   <style>
     body {
       margin: 0;
@@ -17,7 +16,6 @@
       color: #00f7ff;
       font-family: 'Inter', sans-serif;
       text-align: center;
-      overflow: hidden;
     }
     h1 {
       font-size: 2.5rem;
@@ -25,9 +23,14 @@
       text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
     }
     p {
-      font-size: 1.1rem;
-      opacity: 0.8;
+      font-size: 1.2rem;
       margin-bottom: 20px;
+    }
+    #countdown {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #00f7ff;
     }
     a.button {
       display: inline-block;
@@ -46,26 +49,27 @@
       color: #00f7ff;
       box-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff;
     }
-    .glow {
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { text-shadow: 0 0 10px #00f7ff; }
-      50% { text-shadow: 0 0 25px #00f7ff; }
-      100% { text-shadow: 0 0 10px #00f7ff; }
-    }
   </style>
 </head>
 <body>
-  <h1 class="glow">🚀 Welcome to Coinawe</h1>
-  <p>Redirecting you to our official Discord server...</p>
+  <h1>🚀 Welcome to Coinawe</h1>
+  <p>You’ll be redirected to our official Discord in</p>
+  <div id="countdown">3</div>
   <a class="button" href="https://discord.gg/pddBb8G3UX" target="_blank">Join Now</a>
 
   <script>
-    // fallback redirect kalau meta refresh gagal
-    setTimeout(() => {
-      window.location.href = "https://discord.gg/pddBb8G3UX";
-    }, 3000);
+    let timeLeft = 3; // detik
+    const countdownEl = document.getElementById("countdown");
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      countdownEl.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://discord.gg/pddBb8G3UX";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
